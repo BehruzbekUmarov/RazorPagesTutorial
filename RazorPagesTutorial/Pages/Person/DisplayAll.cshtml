@@ -1,0 +1,30 @@
+﻿@page
+@model RazorPagesTutorial.Pages.Person.DisplayAll
+@{
+}
+<partial name="_Message" />
+<h2>Person</h2>
+<div>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var person in Model.People)
+            {
+                <tr>
+                    <td>@person.Name</td>
+                    <td>@person.Email</td>
+                    <td>
+                        <a asp-page="Edit" asp-route-id="@person.Id" class="btn btn-success">Edit</a>
+                        <a class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
